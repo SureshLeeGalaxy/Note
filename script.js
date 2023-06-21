@@ -119,14 +119,73 @@ function loadTopicContent(url) {
   // Set the onload event handler
   xhr.onload = function() {
     if (xhr.status === 200) {
-      // Update the topic content container with the loaded HTML
-      topicContent.innerHTML = xhr.responseText;
+      // Create a modal box element and content
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+
+      // Create a close button for the modal
+      const closeButton = document.createElement('span');
+      closeButton.classList.add('close-button');
+      closeButton.innerHTML = '&times;';
+
+      // Append the close button to the modal content
+      modalContent.appendChild(closeButton);
+
+      // Create a container for the topic content
+      const topicContainer = document.createElement('div');
+      topicContainer.classList.add('topic-container');
+
+      // Set the loaded HTML as the content of the topic container
+      topicContainer.innerHTML = xhr.responseText;
+
+      // Append the topic container to the modal content
+      modalContent.appendChild(topicContainer);
+
+      // Append the modal content to the modal
+      modal.appendChild(modalContent);
+
+      // Append the modal to the body
+      document.body.appendChild(modal);
+
+      // Add event listener to the close button
+      closeButton.addEventListener('click', function() {
+        // Remove the modal from the body
+        document.body.removeChild(modal);
+      });
     } else {
-      // Display a "Page Not Found" message
-      topicContent.innerHTML = '<h2>Page Not Found</h2>';
+      // Create a modal box element and content for "Page Not Found"
+      const modal = document.createElement('div');
+      modal.classList.add('modal');
+
+      const modalContent = document.createElement('div');
+      modalContent.classList.add('modal-content');
+
+      const closeButton = document.createElement('span');
+      closeButton.classList.add('close-button');
+      closeButton.innerHTML = '&times;';
+
+      const notFoundMessage = document.createElement('h2');
+      notFoundMessage.textContent = 'Page Not Found';
+      notFoundMessage.classList.add('not-found');
+      topicContent.innerHTML = '';
+      topicContent.appendChild(notFoundMessage);
+
+      modalContent.appendChild(closeButton);
+      modalContent.appendChild(notFoundMessage);
+      modal.appendChild(modalContent);
+      document.body.appendChild(modal);
+
+      // Add event listener to the close button
+      closeButton.addEventListener('click', function() {
+        document.body.removeChild(modal);
+      });
     }
   };
 
   // Send the request
   xhr.send();
 }
+

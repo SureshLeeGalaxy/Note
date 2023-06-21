@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.explanation {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.explanation h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.explanation h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.explanation p {
+    margin-bottom: 10px;
+}
+
+.explanation ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.code {
+    background-color: #eaeaea;
+    padding: 10px;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.code pre {
+    margin: 0;
+}
+
+.code pre code {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    white-space: pre;
+}
+
