@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2023a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S1 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S2 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S5 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2022 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: var(--mw-color-matlabWarning);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: var(--mw-color-matlabWarning) !important;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: var(--mw-color-matlabErrors);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors);    text-decoration: underline;}
+.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType,.rtcThemeDefaultOverride .diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: var(--mw-color-matlabErrors) !important;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}
+.S7 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 0px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S8 { border-left: 1px solid rgb(217, 217, 217); border-right: 1px solid rgb(217, 217, 217); border-top: 1px solid rgb(217, 217, 217); border-bottom: 1px solid rgb(217, 217, 217); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><div  class = 'S0'><span>Certainly! I'll provide you with a step-by-step explanation of the Gauss Elimination method along with the MATLAB code. Gauss Elimination is an algorithm used to solve systems of linear equations.</span></div><div  class = 'S0'><span></span></div><div  class = 'S0'><span>Step 1: Input the system of equations</span></div><div  class = 'S0'><span>In this step, you need to input the coefficients of the variables and the constants in the system of equations. Let's assume you have a system of three equations with three variables as an example:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >A = [2, -1, 3; 1, 3, 1; 4, -6, 2];</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >B = [9; 10; 12];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'>&nbsp;</div></div></div><div  class = 'S4'><span>Here, `A` represents the matrix of coefficients, and `B` represents the matrix of constants.</span></div><div  class = 'S0'><span></span></div><div  class = 'S0'><span>Step 2: Augment the matrices</span></div><div  class = 'S0'><span>To simplify the Gaussian elimination process, we augment the matrix of coefficients with the matrix of constants. This creates an augmented matrix, which is a combined matrix of `A` and `B`:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >AB = [A, B];</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'>&nbsp;</div></div></div><div  class = 'S4'><span>Step 3: Forward elimination</span></div><div  class = 'S0'><span>In this step, we perform row operations to transform the augmented matrix into an upper triangular matrix (zeros below the main diagonal). We start by eliminating the first variable from the second and third equations. Then, we eliminate the second variable from the third equation.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >[n, m] = size(AB);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >k = 1:n-1</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">for </span><span >i = k+1:n</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >        factor = AB(i,k) / AB(k,k);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >        AB(i,k:m) = AB(i,k:m) - factor * AB(k,k:m);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    </span><span style="color: rgb(14, 0, 255);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S4'><span>Step 4: Back substitution</span></div><div  class = 'S0'><span>After performing forward elimination, the augmented matrix will be in the upper triangular form. Now, we can perform back substitution to find the values of the variables.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S1'><span style="white-space: pre"><span >X = zeros(n, 1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >X(n) = AB(n,m) / AB(n,n);</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = n-1:-1:1</span></span></div></div><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre"><span >    X(i) = (AB(i,m) - AB(i,i+1:n)*X(i+1:n)) / AB(i,i);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div></div></div><div  class = 'S4'><span>Step 5: Output the results</span></div><div  class = 'S0'><span>Finally, we display the values of the variables.</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S5'><span style="white-space: pre"><span >disp(</span><span style="color: rgb(167, 9, 245);">'Solution:'</span><span >);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="5C3D34E4" prevent-scroll="true" data-testid="output_0" style="width: 1204px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1174" data-previous-scroll-height="17" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Solution:</div></div></div></div><div class="inlineWrapper outputs"><div  class = 'S7'><span style="white-space: pre"><span >disp(X);</span></span></div><div  class = 'S6'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="FAEFC89B" prevent-scroll="true" data-testid="output_1" style="width: 1204px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-previous-available-width="1174" data-previous-scroll-height="46" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">   5.375000000000000
+   1.562500000000000
+  -0.062500000000000</div></div></div></div></div><div  class = 'S4'><span>Putting it all together, here's the complete MATLAB code for Gauss Elimination:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'>&nbsp;</div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% 
+% Certainly! I'll provide you with a step-by-step explanation of the Gauss Elimination 
+% method along with the MATLAB code. Gauss Elimination is an algorithm used to 
+% solve systems of linear equations.
+% 
+% 
+% 
+% Step 1: Input the system of equations
+% 
+% In this step, you need to input the coefficients of the variables and the 
+% constants in the system of equations. Let's assume you have a system of three 
+% equations with three variables as an example:
+
+A = [2, -1, 3; 1, 3, 1; 4, -6, 2];
+B = [9; 10; 12];
+
+%% 
+% Here, `A` represents the matrix of coefficients, and `B` represents the matrix 
+% of constants.
+% 
+% 
+% 
+% Step 2: Augment the matrices
+% 
+% To simplify the Gaussian elimination process, we augment the matrix of coefficients 
+% with the matrix of constants. This creates an augmented matrix, which is a combined 
+% matrix of `A` and `B`:
+
+AB = [A, B];
+
+%% 
+% Step 3: Forward elimination
+% 
+% In this step, we perform row operations to transform the augmented matrix 
+% into an upper triangular matrix (zeros below the main diagonal). We start by 
+% eliminating the first variable from the second and third equations. Then, we 
+% eliminate the second variable from the third equation.
+
+[n, m] = size(AB);
+for k = 1:n-1
+    for i = k+1:n
+        factor = AB(i,k) / AB(k,k);
+        AB(i,k:m) = AB(i,k:m) - factor * AB(k,k:m);
+    end
+end
+%% 
+% Step 4: Back substitution
+% 
+% After performing forward elimination, the augmented matrix will be in the 
+% upper triangular form. Now, we can perform back substitution to find the values 
+% of the variables.
+
+X = zeros(n, 1);
+X(n) = AB(n,m) / AB(n,n);
+for i = n-1:-1:1
+    X(i) = (AB(i,m) - AB(i,i+1:n)*X(i+1:n)) / AB(i,i);
+end
+%% 
+% Step 5: Output the results
+% 
+% Finally, we display the values of the variables.
+
+disp('Solution:');
+disp(X);
+%% 
+% Putting it all together, here's the complete MATLAB code for Gauss Elimination:
+##### SOURCE END #####
+-->
+</div></body></html>
