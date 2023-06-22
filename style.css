@@ -258,3 +258,22 @@ header {
 }
 
 
+/* CSS code for desktop view */
+
+/* Set a minimum width for the content container */
+.content-container {
+  min-width: 960px;
+}
+
+/* Rest of your CSS code for desktop view */
+
+/* CSS code for mobile view */
+
+/* Override the minimum width for the content container */
+@media (max-width: 767px) {
+  .content-container {
+    min-width: 0;
+  }
+}
+
+/* Rest of your CSS code for mobile view */
