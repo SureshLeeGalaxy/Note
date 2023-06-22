@@ -184,6 +184,19 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  z-index: 9999;
+  
+}
+.modal1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -193,12 +206,12 @@ header {
   z-index: 9999;
 }
 
+
 /* Modal styles */
 .modal-content {
   position: relative;
   background-color: #fff;
   padding: 20px;
-  max-width: 1000px;
   width: 90%;
   max-height: 90%;
   overflow-y: auto;
@@ -207,20 +220,6 @@ header {
   margin: 0 auto; /* Center horizontally within the topic content area */
   margin-top: 20px; /* Add top margin for separation */
   
-}
-
-/* Topic modal box styles */
-.modal-box {
-  max-width: 1000px;
-  max-height: 500px;
-  overflow-x: auto; /* Enable horizontal scrolling */
-  border-radius: 10px; /* Rounded edges */
-  padding: 20px;
-  background-color: #f2f2f2;
-  color: #333;
-  font-size: 16px;
-  position: relative;
-  animation: modal-pop 0.3s ease; /* Add popup animation */
 }
 
 @keyframes modal-pop {

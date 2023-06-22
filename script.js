@@ -110,6 +110,12 @@ function loadSubSections(section) {
 
 // Function to load the content of a topic
 function loadTopicContent(url) {
+  // Remove any existing modal boxes
+  const existingModals = document.querySelectorAll('.modal');
+  existingModals.forEach(function(modal) {
+    modal.parentNode.removeChild(modal);
+  });
+
   // Create a new XMLHttpRequest
   const xhr = new XMLHttpRequest();
 
@@ -158,7 +164,7 @@ function loadTopicContent(url) {
     } else {
       // Create a modal box element and content for "Page Not Found"
       const modal = document.createElement('div');
-      modal.classList.add('modal');
+      modal.classList.add('modal1');
 
       const modalContent = document.createElement('div');
       modalContent.classList.add('modal-content');
@@ -170,8 +176,6 @@ function loadTopicContent(url) {
       const notFoundMessage = document.createElement('h2');
       notFoundMessage.textContent = 'Page Not Found';
       notFoundMessage.classList.add('not-found');
-      topicContent.innerHTML = '';
-      topicContent.appendChild(notFoundMessage);
 
       modalContent.appendChild(closeButton);
       modalContent.appendChild(notFoundMessage);
