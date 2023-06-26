@@ -22,8 +22,8 @@ function loadSubSections(section) {
       {
         name: 'Basics',
         topics: [
-          { title: 'Topic 1', url: 'matlab/basics/topic1.html' },
-          { title: 'Topic 2', url: 'matlab/basics/topic2.html' }
+          { title: 'Guass Elimination', url: 'matlab/basics/topic1.html' },
+          { title: 'Pivot', url: 'matlab/basics/pivot_in_matrix.html' }
         ]
       },
       {
