@@ -18,7 +18,7 @@ sectionLinks.forEach(function(sectionLink) {
 function loadSubSections(section) {
   // Array of sub-sections for each section
   const subSections = {
-    MATLAB: [
+    FourierSeries: [
       {
         name: 'Basics',
         topics: [
@@ -29,12 +29,12 @@ function loadSubSections(section) {
       {
         name: 'Advanced',
         topics: [
-          { title: 'Topic 3', url: 'matlab/advanced/topic3.html' },
+          { title: 'Topic 3', url: 'matlab/advanced/Topic3.pdf' },
           { title: 'Topic 4', url: 'matlab/advanced/topic4.html' }
         ]
       }
     ],
-    Python: [
+    FourierTransform: [
       {
         name: 'Introduction',
         topics: [
@@ -108,13 +108,15 @@ function loadSubSections(section) {
   });
 }
 
-// Function to load the content of a topic
 function loadTopicContent(url) {
   // Remove any existing modal boxes
   const existingModals = document.querySelectorAll('.modal');
   existingModals.forEach(function(modal) {
     modal.parentNode.removeChild(modal);
   });
+
+  // Extract the file extension from the URL
+  const fileExtension = url.split('.').pop().toLowerCase();
 
   // Create a new XMLHttpRequest
   const xhr = new XMLHttpRequest();
@@ -125,42 +127,115 @@ function loadTopicContent(url) {
   // Set the onload event handler
   xhr.onload = function() {
     if (xhr.status === 200) {
-      // Create a modal box element and content
-      const modal = document.createElement('div');
-      modal.classList.add('modal');
+      let modalContent;
+      if (fileExtension === 'html') {
+        // Create a modal box element and content for HTML
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
 
-      const modalContent = document.createElement('div');
-      modalContent.classList.add('modal-content');
+        modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
 
-      // Create a close button for the modal
-      const closeButton = document.createElement('span');
-      closeButton.classList.add('close-button');
-      closeButton.innerHTML = '&times;';
+        // Create a close button for the modal
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close-button');
+        closeButton.innerHTML = '&times;';
 
-      // Append the close button to the modal content
-      modalContent.appendChild(closeButton);
+        // Append the close button to the modal content
+        modalContent.appendChild(closeButton);
 
-      // Create a container for the topic content
-      const topicContainer = document.createElement('div');
-      topicContainer.classList.add('topic-container');
+        // Create a container for the topic content
+        const topicContainer = document.createElement('div');
+        topicContainer.classList.add('topic-container');
 
-      // Set the loaded HTML as the content of the topic container
-      topicContainer.innerHTML = xhr.responseText;
+        // Set the loaded HTML as the content of the topic container
+        topicContainer.innerHTML = xhr.responseText;
 
-      // Append the topic container to the modal content
-      modalContent.appendChild(topicContainer);
+        // Append the topic container to the modal content
+        modalContent.appendChild(topicContainer);
 
-      // Append the modal content to the modal
-      modal.appendChild(modalContent);
+        // Append the modal content to the modal
+        modal.appendChild(modalContent);
 
-      // Append the modal to the body
-      document.body.appendChild(modal);
+        // Append the modal to the body
+        document.body.appendChild(modal);
 
-      // Add event listener to the close button
-      closeButton.addEventListener('click', function() {
-        // Remove the modal from the body
-        document.body.removeChild(modal);
-      });
+        // Add event listener to the close button
+        closeButton.addEventListener('click', function() {
+          // Remove the modal from the body
+          document.body.removeChild(modal);
+        });
+      } else if (fileExtension === 'pdf') {
+        // Create a modal box element and content for PDF
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        // Create an embed element for displaying the PDF
+        const pdfEmbed = document.createElement('embed');
+        pdfEmbed.src = url;
+        pdfEmbed.type = 'application/pdf';
+        pdfEmbed.width = '100%';
+        pdfEmbed.height = '100%';
+
+        // Append the PDF embed to the modal content
+        modalContent.appendChild(pdfEmbed);
+
+        // Append the modal content to the modal
+        modal.appendChild(modalContent);
+
+        // Append the modal to the body
+        document.body.appendChild(modal);
+      } else if (fileExtension === 'doc' || fileExtension === 'docx') {
+        // Create a modal box element and content for Word documents
+        const modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        // Create an iframe for displaying the Word document
+        const wordIframe = document.createElement('iframe');
+        wordIframe.src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(url);
+        wordIframe.width = '100%';
+        wordIframe.height = '100%';
+
+        // Append the Word iframe to the modal content
+        modalContent.appendChild(wordIframe);
+
+        // Append the modal content to the modal
+        modal.appendChild(modalContent);
+
+        // Append the modal to the body
+        document.body.appendChild(modal);
+      } else {
+        // Unsupported file type, show error message
+        const modal = document.createElement('div');
+        modal.classList.add('modal1');
+
+        modalContent = document.createElement('div');
+        modalContent.classList.add('modal-content');
+
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close-button');
+        closeButton.innerHTML = '&times;';
+
+        const unsupportedMessage = document.createElement('h2');
+        unsupportedMessage.textContent = 'Unsupported File Type';
+        unsupportedMessage.classList.add('not-found');
+
+        modalContent.appendChild(closeButton);
+        modalContent.appendChild(unsupportedMessage);
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+
+        // Add event listener to the close button
+        closeButton.addEventListener('click', function() {
+          document.body.removeChild(modal);
+        });
+      }
     } else {
       // Create a modal box element and content for "Page Not Found"
       const modal = document.createElement('div');
@@ -192,4 +267,3 @@ function loadTopicContent(url) {
   // Send the request
   xhr.send();
 }
-

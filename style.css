@@ -53,7 +53,9 @@ header {
 .sections {
   flex-basis: 30%;
   padding: 20px;
-  background-image: url(Images/Background1.jpg);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter : blur(50px);
+  /*background-image: url(Images/Background1.jpg);*/
   background-size: 100%; /* Set a fixed size for the background image */
   color: #fff;
 }
@@ -61,6 +63,7 @@ header {
 .sections h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .sections ul {
@@ -91,7 +94,7 @@ header {
   flex-basis: 70%;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5); /* Set the background color with transparency */
-  backdrop-filter: blur(50px); /* Apply a blur effect */
+  backdrop-filter: blur(20px); /* Apply a blur effect */
 }
 
 .sub-sections h2 {
