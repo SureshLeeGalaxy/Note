@@ -18,12 +18,30 @@ sectionLinks.forEach(function(sectionLink) {
 function loadSubSections(section) {
   // Array of sub-sections for each section
   const subSections = {
-    FourierSeries: [
+    Matrix: [
       {
         name: 'Basics',
         topics: [
-          { title: 'Guass Elimination', url: 'matlab/basics/topic1.html' },
-          { title: 'Pivot', url: 'matlab/basics/pivot_in_matrix.html' }
+          { title: 'Guass Elimination', url: 'matlab/Matrix/basics/topic1.html' },
+          { title: 'Pivot', url: 'matlab/Matrix/basics/pivot_in_matrix.html' }
+        ]
+      },
+      {
+        name: 'Advanced',
+        topics: [
+          { title: 'Topic 3', url: 'matlab/advanced/Topic3.pdf' },
+          { title: 'Topic 4', url: 'matlab/advanced/topic4.html' }
+        ]
+      }
+    ],
+    FourierSeries: [
+      {
+        name: 'Eulers Formula',
+        topics: [
+          { title: 'General Code for any Function', url: 'matlab/Fourier Series/Eulers Fourier Function/General_Euler_Formula_code.html' },
+          { title: 'Example 10.1', url: 'matlab/Fourier Series/Eulers Fourier Function/Example10_1.html' },
+          { title: 'Example 10.2', url: 'matlab/Fourier Series/Eulers Fourier Function/Example10_2.html' },
+          { title: 'Example 10.3', url: 'matlab/Fourier Series/Eulers Fourier Function/Example10_3.html' }
         ]
       },
       {
