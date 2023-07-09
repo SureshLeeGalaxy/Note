@@ -51,7 +51,7 @@ header {
 
 /* Sections styles */
 .sections {
-  flex-basis: 30%;
+  flex-basis: 20%;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter : blur(50px);
@@ -91,7 +91,7 @@ header {
 
 /* Sub-sections styles */
 .sub-sections {
-  flex-basis: 70%;
+  flex-basis: 80%;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5); /* Set the background color with transparency */
   backdrop-filter: blur(20px); /* Apply a blur effect */
@@ -128,7 +128,8 @@ header {
 }
 
 .topics-list.show {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .topics-list li {
@@ -140,6 +141,7 @@ header {
   text-decoration: none;
   margin-left: 20px;
   font-size: 16px;
+ 
   padding: 10px;
   display: inline-block;
   border-radius: 7px;
@@ -161,7 +163,7 @@ header {
 
 /* Modal styles */
 .modal {
-  display: flex;
+  display: fixed;
   justify-content: center;
   align-items: center;
   position: relative;
