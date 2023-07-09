@@ -1,0 +1,206 @@
+% EulerFormula Piecewise Defined Function
+
+% Clear the workspace and command window
+clear;
+clc;
+
+% Define the symbolic variable x and pi
+syms x n;
+
+disp('Define the function f(x)')
+f1 = 0 % Define the function for 0 <= x <= pi
+f2 = sin(x) % Define the function for pi <= x <= 2*pi
+%f3 = 
+
+disp('limits of integration')
+L1 = -pi;
+U1 = 0;
+L2 = 0;
+U2 = pi;
+% L3 = 
+% U3 = 
+
+disp('--> lower bound/limit')
+lb1 = sym(L1);
+lb2 = sym(L2);
+disp('upper bound/limit <--')
+ub1 = sym(U1);
+ub2 = sym(U2);
+
+% Calculate the Fourier coefficients for the first interval
+disp('a01 =')
+a0001 = (1/sym(pi)) * int(f1, x, lb1, ub1, 'Hold', true);
+disp(a0001)
+a001 = (1/sym(pi)) * int(f1, x);
+disp(a001)
+disp('Substituting the limits, we get ')
+disp('a0 =')
+a01 = release(a0001);
+disp(a01)
+disp('**********************************************************')
+
+
+disp('a02 =')
+a0002 = (1/sym(pi)) * int(f2, x, lb2, ub2, 'Hold', true);
+disp(a0002)
+a002 = (1/sym(pi)) * int(f2, x);
+disp(a002)
+disp('Substituting the limits, we get ')
+disp('a0 =')
+a02 = release(a0002);
+disp(a02)
+disp('**********************************************************')
+
+
+a0= a01+a02
+
+
+
+
+
+
+annn1 = (1/sym(pi)) * int(f1*cos(n*x), x, lb1, ub1, 'Hold', true);
+ann1 = (1/sym(pi)) * int(f1*cos(n*x), x);
+an1 = release(annn1);
+Z1(n) = an1
+
+bnnn1 = (1/sym(pi)) * int(f1*sin(n*x), x, lb1, ub1, 'Hold', true);
+bnn1 = (1/sym(pi)) * int(f1*sin(n*x), x);
+bn1 = release(bnnn1);
+Y1(n) = bn1
+
+% Calculate the Fourier coefficients for the second interval
+annn2 = (1/sym(pi)) * int(f2*cos(n*x), x, lb2, ub2, 'Hold', true);
+ann2 = (1/sym(pi)) * int(f2*cos(n*x), x);
+an2 = release(annn2);
+Z2(n) = an2;
+
+bnnn2 = (1/sym(pi)) * int(f2*sin(n*x), x, lb2, ub2, 'Hold', true);
+bnn2 = (1/sym(pi)) * int(f2*sin(n*x), x);
+bn2 = release(bnnn2);
+Y2(n) = bn2;
+
+
+disp('Define the number of terms in the Fourier series (n)')
+n=6 % Change this value as desired
+
+disp('********************************************************')
+
+
+disp('an1 = ')
+disp(an1)
+disp('--------------------------------------------------------')  
+disp('an2 = ')
+disp(an2)
+disp('--------------------------------------------------------') 
+
+a = sym('a', [1 n]);
+a11 = sym('a', [1 n]); % for combining both the limits
+a22= sym('a', [1 n]);  % for combining both the limits
+
+
+a1 = sym('a', [n 1]);
+
+for k = 1:n
+    try
+        a11(k)=Z1(k);
+        a22(k)=Z2(k);
+        
+        
+    catch
+        % If division by zero error occurs, perform different instructions
+        % disp(['Error: Division by zero in an for n = ' num2str(k)]);
+        % disp('Use Standrad formula to find this issue')
+        a11(k) = (1/sym(pi)) * int(f1*cos(k*x), x, lb1, ub1); 
+        a22(k) = (1/sym(pi)) * int(f2*cos(k*x), x, lb2, ub2);
+    
+    end
+
+    a(k)=a11(k)+a22(k);
+
+end
+
+disp([a1,a'])
+
+disp('********************************************************')
+
+disp('bn1 = ')
+disp(bn1)
+disp('--------------------------------------------------------') 
+
+disp('bn2 = ')
+disp(bn2)
+disp('--------------------------------------------------------') 
+
+
+b = sym('b', [1 n]);
+b11 = sym('b', [1 n]); % for combining both the limits
+b22= sym('b', [1 n]);  % for combining both the limits
+
+
+b1 = sym('b', [n 1]); % for table b1,b2..... displaying
+
+for k = 1:n
+    try
+        b11(k)=Y1(k);
+        b22(k)=Y2(k);
+        
+    catch
+        % If division by zero error occurs, perform different instructions
+        % disp(['Error: Division by zero in an for n = ' num2str(k)]);
+        % disp('Use Standrad formula to find this issue')
+        b11(k) = (1/sym(pi)) * int(f1*sin(k*x), x, lb1, ub1); 
+        b22(k) = (1/sym(pi)) * int(f2*sin(k*x), x, lb2, ub2);
+    
+    end
+
+    b(k)=b11(k)+b22(k);
+
+end
+
+disp([b1,b'])
+
+
+
+
+
+
+disp('Graphing the actual function and Fourier series approximation')
+approximation = a0/2;
+
+for k = 1:n
+
+    approximation;
+    fprintf('Approximation of f(x) for n = %d\n', k)
+    disp(approximation)
+    figure('Position', [100, 100, 400, 300]); % Create a new figure for each plot
+
+    % Plot the actual function and Fourier series approximation
+    fplot(f1,[L1,U1],'b','LineWidth',2);
+    hold on;
+    fplot(f2,[L2,U2],'b','LineWidth',2);
+    fplot(approximation,[L1,U1],'r','LineWidth',1.5, 'LineStyle', '--');
+    fplot(approximation,[L2,U2],'r','LineWidth',1.5, 'LineStyle', '--');
+    hold off;
+    xlabel('x');
+
+    vec = linspace(lb1, ub2, 5); % depending on the gap required, decide the spacing
+    tick_labels = string(vec);
+
+    % Replace "pi" with the LaTeX representation of the Greek letter pi
+    tick_labels = replace(tick_labels, "pi", "\pi");
+
+    xticks(linspace(L1, U2, 5));
+    xticklabels(tick_labels);
+
+    ylabel('f(x)');
+    title(['Fourier Series Approximation of f(x) for n = ', num2str(k)]);
+    %legend('Actual function', ['Approximation for n = ', num2str(k)]);
+    grid on;
+    hold off;
+
+    disp('*****************************************************************************')
+
+    approximation = approximation + a(k)*cos(k*x) + b(k)*sin(k*x);
+
+end

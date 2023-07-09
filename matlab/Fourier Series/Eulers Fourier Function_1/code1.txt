@@ -1,0 +1,119 @@
+% General Euler Formula code
+
+
+% Clear the workspace and command window
+clear;
+clc;
+
+% Define the symbolic variable x and pi
+syms x;
+
+% Define the function f(x)
+%f = exp(-x)
+%f = x*sin(x)
+f = x-x^2
+
+
+% limits of integration
+% L = 0;
+% U = 2*pi;
+L = -pi;
+U = pi;
+
+disp('lower bound/limit')
+lb = sym(L) %lower bound/limit
+disp('upper bound/limit')
+ub = sym(U) %upper bound/limit
+
+disp('Define the number of terms in the Fourier series (n)')
+n = 6  % Change this value as desired
+
+
+% Calculate the Fourier coefficients
+disp('a0 = ')
+a000 = (1/sym(pi)) * int(f, x, lb, ub,'Hold',true);
+disp(a000)
+a00 = (1/sym(pi)) * int(f, x);
+disp(a00)
+disp("Substituting the Limits of integration We get")
+a0=release(a000);
+disp(a0)
+ann = sym('an', [1 n]); % function
+an= sym('an', [1 n]);  % evaluted the integral
+a = sym('a', [1 n]);   % after substuting the limits
+
+bnn = sym('bn', [1 n]);
+bn = sym('bn', [1 n]);
+b = sym('b', [1 n]);
+
+for k = 1:n
+
+    fprintf('a%d = \n',k)
+
+
+    ann(k) = (1/sym(pi)) * int(f*cos(k*x), x, lb, ub,'Hold',true);
+    disp(ann(k))
+    an(k) = (1/sym(pi)) * int(f*cos(k*x), x);
+    disp(an(k))
+    disp("Substituting the Limits of integration We get")
+    a(k)=release(ann(k));
+   
+    disp(a(k))
+
+    disp('---------------------------------------------------------------------------') 
+
+    fprintf('b%d = \n',k)
+ 
+    bnn(k) = (1/sym(pi)) * int(f*sin(k*x), x, lb, ub,'Hold',true);
+    disp(bnn(k))
+    bn(k) = (1/sym(pi)) * int(f*sin(k*x), x);
+    disp(bn(k))
+    b(k)=release(bnn(k));
+    disp("Substituting the Limits of integration ")
+    disp(b(k))
+
+    disp('*************************************************************************')
+end
+disp('final a and b vector is given below (a1,a2,.....) and (b1,b2,.....)')
+a
+b
+disp('----------------------------------------------------------------------')  
+
+disp('Graphing the actual function and Fourier series approximation')
+
+approximation = a0/2;
+
+for k = 1:n
+
+    approximation;
+    fprintf('Approximation of f(x) for n = %d\n',k)
+    disp(approximation)
+    figure('Position', [100, 100, 300, 300]); % Create a new figure for each plot
+
+    % Plot the actual function and Fourier series approximation
+    fplot(f,[L,U],'b','LineWidth',2);
+    hold on;
+    fplot(approximation,[L,U],'LineWidth',1.5, 'LineStyle', '--');
+    hold off;
+    xlabel('x');
+
+    vec= linspace(lb, ub, 5); % depending the gap required decide the spacing
+    tick_labels = string(vec);
+
+    % Replace "pi" with the LaTeX representation of the Greek letter pi
+    tick_labels = replace(tick_labels, "pi", "\pi");
+    
+    xticks(linspace(L, U, 5)); %numel is like len() in python
+    xticklabels(tick_labels);
+
+    ylabel('f(x)');
+    title(['Fourier Series Approximation of f(x) = ',char(f),' for n = ',num2str(k)]);
+    legend('Actual function',['approximation for n = ',num2str(k)]);
+    grid on;
+    hold off;
+
+    disp('*****************************************************************************')
+
+    approximation = approximation + a(k)*cos(k*x) + b(k)*sin(k*x);
+    
+end

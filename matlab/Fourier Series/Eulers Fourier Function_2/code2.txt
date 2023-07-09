@@ -1,0 +1,152 @@
+% General Euler Formula approach 2
+
+% Clear the workspace and command window
+clear;
+clc;
+
+% Define the symbolic variable x and pi
+syms x n;
+
+disp('Define the function f(x)')
+%f = exp(-x)
+f = x*sin(x)
+%f = x-x^2
+
+disp('limits of integration')
+L = 0;
+U = 2*pi;
+%L = -pi;
+%U = pi;
+
+disp('--> lower bound/limit')
+lb = sym(L)
+disp('upper bound/limit <--')
+ub = sym(U)
+
+
+% Calculate the Fourier coefficients
+disp('a0 =')
+a000 = (1/sym(pi)) * int(f, x, lb, ub,'Hold',true);
+disp(a000)
+a00 = (1/sym(pi)) * int(f, x);
+disp(a00)
+disp('Substuting the limits, we get ')
+disp('a0 =')
+a0=release(a000);
+disp(a0)
+disp('**********************************************************')
+
+%------------------------------------------------------------
+annn = (1/sym(pi)) * int(f*cos(n*x), x, lb, ub,'Hold',true);
+ann = (1/sym(pi)) * int(f*cos(n*x), x);
+an=release(annn)
+Z(n)=an;
+%------------------------------------------------------------
+bnnn = (1/sym(pi)) * int(f*sin(n*x), x, lb, ub,'Hold',true);
+bnn = (1/sym(pi)) * int(f*sin(n*x), x);
+bn=release(bnnn);
+Y(n)=bn;
+%------------------------------------------------------------
+
+disp('Define the number of terms in the Fourier series (n)')
+n=6 % Change this value as desired
+
+a = sym('a', [1 n]);
+a1 = sym('a', [n 1]);
+
+for k = 1:n
+    try
+        a(k)=Z(k);
+        
+    catch
+        % If division by zero error occurs, perform different instructions
+        % disp(['Error: Division by zero in an for n = ' num2str(k)]);
+        % disp('Use Standrad formula to find this issue')
+        a(k) = (1/sym(pi)) * int(f*cos(k*x), x, lb, ub);
+
+    end
+end
+
+% for k = 1:n
+%     a(k)=Z(k);
+% end
+
+disp('an = ')
+disp(annn)
+disp(ann)
+disp('Substuting the limits, we get ')
+disp('an = ')
+disp(an)
+disp('--------------------------------------------------------')  
+
+disp([a1,a'])
+disp('********************************************************')
+
+b = sym('b', [1 n]);
+b1 = sym('b', [n 1]);
+
+for k = 1:n
+    try
+        b(k)=Y(k);
+        
+    catch
+        % If division by zero error occurs, perform different instructions
+        % disp(['Error: Division by zero in an for n = ' num2str(k)]);
+        % disp('Use Standrad formula to find this issue')
+        b(k) = (1/sym(pi)) * int(f*sin(k*x), x, lb, ub);
+
+    end
+end
+% for k = 1:n
+%     b(k)=Y(k);
+% end
+
+disp('bn = ')
+disp(bnnn)
+disp(bnn)
+disp('Substuting the limits, we get ')
+disp('bn = ')
+disp(bn)
+disp('--------------------------------------------------------')  
+
+disp([b1,b'])
+
+disp('********************************************************')  
+
+disp('Graphing the actual function and Fourier series approximation')
+approximation = a0/2;
+
+for k = 1:n
+
+    approximation;
+    fprintf('Approximation of f(x) for n = %d\n',k)
+    disp(approximation)
+    figure('Position', [100, 100, 400, 300]); % Create a new figure for each plot
+
+    % Plot the actual function and Fourier series approximation
+    fplot(f,[L,U],'b','LineWidth',2);
+    hold on;
+    fplot(approximation,[L,U],'LineWidth',1.5, 'LineStyle', '--');
+    hold off;
+    xlabel('x');
+
+    vec= linspace(lb, ub, 5); % depending the gap required decide the spacing
+    tick_labels = string(vec);
+
+    % Replace "pi" with the LaTeX representation of the Greek letter pi
+    tick_labels = replace(tick_labels, "pi", "\pi");
+    
+    xticks(linspace(L, U, 5)); %numel is like len() in python
+    xticklabels(tick_labels);
+
+    ylabel('f(x)');
+    title(['Fourier Series Approximation of f(x) = ',char(f),' for n = ',num2str(k)]);
+    legend('Actual function',['approximation for n = ',num2str(k)]);
+    grid on;
+    hold off;
+
+    disp('*****************************************************************************')
+
+    approximation = approximation + a(k)*cos(k*x) + b(k)*sin(k*x);
+    
+end
