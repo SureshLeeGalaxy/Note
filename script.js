@@ -25,7 +25,7 @@ function loadSubSections(section) {
           { title: 'Guass Elimination', url: 'matlab/Matrix/basics/topic1.html' },
           { title: 'Pivot', url: 'matlab/Matrix/basics/pivot_in_matrix.html' },
           { title: 'text', url: 'matlab/Matrix/basics/hi.txt' },
-          { title: 'text', url: 'matlab/Matrix/basics/hello.pdf' }
+          { title: 'pdf', url: 'matlab/Matrix/basics/hello.pdf' }
 
 
 
@@ -44,6 +44,7 @@ function loadSubSections(section) {
         name: 'Eulers Formula Approach 1',
         topics: [
           { title: 'General Code for any Function', url: 'matlab/Fourier Series/Eulers Fourier Function_1/General_Euler_Formula_code.html' },
+          { title: 'Code', url: 'matlab/Fourier Series/Eulers Fourier Function_1/code1.txt' },
           { title: 'Example 10.1', url: 'matlab/Fourier Series/Eulers Fourier Function_1/Example10_1.html' },
           { title: 'Example 10.2', url: 'matlab/Fourier Series/Eulers Fourier Function_1/Example10_2.html' },
           { title: 'Example 10.3', url: 'matlab/Fourier Series/Eulers Fourier Function_1/Example10_3.html' }
@@ -53,11 +54,13 @@ function loadSubSections(section) {
         name: 'Eulers Formula Approach 2',
         topics: [
           { title: 'General Code for any Function', url: 'matlab/Fourier Series/Eulers Fourier Function_2/General_Euler_Formula_approach_2.html' },
+          { title: 'Code', url: 'matlab/Fourier Series/Eulers Fourier Function_2/code2.txt' },
           { title: 'Example 10.1', url: 'matlab/Fourier Series/Eulers Fourier Function_2/Example10_1.html' },
           { title: 'Example 10.2', url: 'matlab/Fourier Series/Eulers Fourier Function_2/Example10_2.html' },
           { title: 'Example 10.3', url: 'matlab/Fourier Series/Eulers Fourier Function_2/Example10_3.html' },
           { title: 'Piece Wise defined function', url: 'matlab/Fourier Series/Eulers Fourier Function_2/EulerFormula_PiecewiseDefinedFunction.html' },
-          { title: 'Example 10.3', url: 'matlab/Fourier Series/Eulers Fourier Function_2/Example10_6.html' }
+          { title: 'Code', url: 'matlab/Fourier Series/Eulers Fourier Function_2/code3.txt' },
+          { title: 'Example 10.6', url: 'matlab/Fourier Series/Eulers Fourier Function_2/Example10_6.html' }
 
         ]
       },
